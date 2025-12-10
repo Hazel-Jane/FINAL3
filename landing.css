@@ -1,0 +1,471 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+text-decoration: none;
+ border: none;
+outline: none;
+scroll-behavior: smooth;
+font-family: -apple-system, sans-serif;
+}
+
+html {
+font-size: 62.5%;
+overflow-x: hidden;
+}
+body {background: var(--bg-color); color: var(--text-color);}
+
+section {
+ min-height: 100vh;
+ padding: 10rem 9% 2rem;
+}
+.header {
+ position: fixed;
+width: 100%;
+ top: 0;
+right: 0;
+ z-index: 1000;
+ display: flex;
+ align-items: center;
+justify-content: space-between;
+padding: 1rem 5%;
+background: rgb(50, 119, 47);
+ backdrop-filter: blur(20px);
+transition: all 0.5s ease;
+}
+.logo {
+font-size: 2rem;
+ color: rgb(255, 255, 255);
+font-weight: 700;
+ cursor: default;
+ transition: 0.3s ease;
+}
+.logo:hover {transform: scale(1.05); color: #F3DE2C;}
+.navbar a {
+font-size: 1.5rem;
+color: rgb(255, 255, 255);
+ margin-left: 4rem;
+font-weight: 700;
+ transition: 0.3s ease-in-out;
+}
+.navbar a:hover,
+.navbar a.active {
+color: #F3DE2C;
+}
+#menu-icon {
+ font-size: 3.6rem;
+color: rgb(255, 255, 255);
+ cursor: pointer;
+display: none;
+}
+
+/* Landing Section Styles */
+.landing {
+     position: relative;
+height: 100vh;
+background: url(https://i.pinimg.com/1200x/41/94/a0/4194a0f08f37d73a57103b675426e8b8.jpg) no-repeat center center/cover;
+display: flex;
+justify-content: center;
+ align-items: center;
+text-align: center;
+}
+.overlay {
+ position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(116, 116, 116, 0.363);
+z-index: 0;
+}
+.landing-content {
+ position: relative;
+ z-index: 1;
+ color: #fff;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.landing-content h1 {
+ font-size: 6rem;
+ letter-spacing: 2px;
+ margin-bottom: 1rem;
+ font-family: Montserrat;
+}
+.landing-content p {
+font-size: 2rem;
+ margin-bottom: 2rem;
+ font-family: Montserrat;
+}
+
+.btn {
+display: inline-block;
+background: #fff;
+color: #050505;
+padding: 1.2rem 3rem;
+ border-radius: 30px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: all 0.3s ease;
+ cursor: pointer;
+ border: none;
+}
+.btn:hover {
+ background: #70e07a;
+ color: #fff;
+ transform: scale(1.1);
+}
+
+/* -----------Auth Buttons ---------*/
+.auth-buttons {
+display: none; /* Hidden by default */
+
+}
+.auth-buttons.show {
+ display: flex;
+ gap: 20px;
+}
+.auth-btn {
+ background: rgba(255, 255, 255); 
+ color: #000000;
+ padding: 1rem 4rem;
+ font-size: 1.2rem;
+}
+
+.auth-btn:hover {
+    background: #5de968;
+    color: #ffffff;
+    transform: scale(1.05);
+    row-gap: 50px;
+}
+
+/* --- Form Container Styles --- */
+
+.form_container{
+position: absolute;
+    max-width: 320px;
+    width: 100%;
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(1.2); 
+    opacity: 0;
+    pointer-events: none;
+    z-index: 101;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.4s ease-out;
+}
+
+.form_close{
+ position: absolute;
+ top: 10px;
+ right: 20px;
+ color: #124b04;
+ font-size: 2rem;
+ opacity: 0.7;
+cursor: pointer;
+}
+
+.form_container h2{
+ font-size: 22px;
+ color: #000000;
+ text-align: center;
+}
+
+.input_box{
+ position: relative;
+ margin-top: 30px;
+ width: 100%;
+ height: 40px;
+}
+.input_box input{
+ height: 100%;
+ width: 100%;
+ border: none;
+ outline: none;
+ padding: 0 30px;
+ color: #151516;
+ transition: all 0.2s ease;
+border-bottom: 1.5px solid #379c50;
+}
+
+.input_box input:focus{
+ border-color: #379c50;
+}
+
+.input_box i{
+ position: absolute;
+top: 50%;
+transform: translateY(-50%);
+ font-size: 20px;
+ color: #8d8d8d;
+ cursor: pointer;
+}
+
+.input_box i.password,
+.input_box i.email{
+left: 0px;
+color: #8d8d8d;
+}
+
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password{
+ color: #000000;
+}
+
+.input_box i.pw_hide{
+right: 0;
+ font-size: 18px;
+}
+
+.option_field{
+display: flex;
+margin-top: 14px;
+align-items: center;
+justify-content: space-between;
+}
+
+.checkbox{
+display: flex;
+white-space: nowrap;
+column-gap: 8px;
+}
+
+.checkbox input{
+accent-color: #379c50 ;
+}
+
+.checkbox label{
+cursor: pointer;
+user-select: none;
+font-size: 12px;
+color: #000000;
+}
+
+.form_container .button{
+color: #fff;
+background: #009726;
+ margin-top: 30px;
+width: 100%;
+padding: 10px 0;
+border-radius: 10px;
+}
+
+.login_signup{
+ font-size: 12px;
+text-align: center;
+ margin-top: 15px;
+color: #000000;
+}
+
+.signup_form{
+display: none;
+}
+
+/* This is the class that toggles the signup form visibility */
+.form_container.active .signup_form{
+display: block;
+}
+.form_container.active .login_form{
+display: none;
+} 
+
+section{
+    padding: 3rem 9%;
+}
+
+.heading{
+    text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-size: 4rem;
+}
+
+.about .row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about .row .content{
+    flex: 1 1 40rem;
+}
+
+.about .row .content h3{
+    font-size: 3.5rem;
+    color: #000000;
+}
+
+.about .row .content p{
+    font-size: 1.4rem;
+    color: #000000;
+    padding: 2rem 0;
+    line-height: 2;
+    text-align: justify;
+}
+
+.about .row .image{
+    flex: 1 1 25rem;
+}
+
+.about .row .image img{
+    width: 100%;
+}
+
+/* -------- LAPTOP & SMALL DESKTOP (≤ 1200px) -------- */
+@media (max-width: 1200px) {
+  html {
+    font-size: 58%;
+  }
+
+  section {
+    padding: 8rem 6%;
+  }
+}
+
+/* -------- TABLET (≤ 992px) -------- */
+@media (max-width: 992px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 1rem 4%;
+  }
+
+  .navbar a {
+    margin-left: 2.5rem;
+  }
+
+  .landing-content h1 {
+    font-size: 4.8rem;
+  }
+
+  .landing-content p {
+    font-size: 1.8rem;
+  }
+
+  .about .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .row .content h3 {
+    font-size: 3rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.3rem;
+    text-align: justify;
+  }
+
+  .form_container {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/* -------- MOBILE (≤ 768px) -------- */
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgb(50, 119, 47);
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 2rem 0;
+    font-size: 1.8rem;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .landing-content h1 {
+    font-size: 3.8rem;
+  }
+
+  .landing-content p {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+  }
+
+  .auth-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .about .row .content h3 {
+    font-size: 2.6rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.2rem;
+  }
+}
+
+/* -------- SMALL MOBILE (≤ 480px) -------- */
+@media (max-width: 480px) {
+  html {
+    font-size: 52%;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .landing-content h1 {
+    font-size: 3rem;
+  }
+
+  .landing-content p {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+  }
+
+  .form_container {
+    padding: 20px;
+  }
+
+  .heading {
+    font-size: 2.6rem;
+  }
+
+  .about .row .content h3 {
+    font-size: 2.2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.1rem;
+  }
+}

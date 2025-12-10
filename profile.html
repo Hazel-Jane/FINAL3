@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="footer.css">
+    
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <header class="header">
+        <a href="" class="logo">SavoryKit</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="homies.html">Home</a>
+            <a href="Recipes.html">Recipe</a>
+            <a href="market.html">Marketmap</a>
+            <a href="pnutrition.html">Nutrition</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+
+  <section class="profile-section">
+        
+        <div class="profile-content-container">
+            
+            <div class="profile-left-column">
+                <div class="profile-pic-container">
+                    <img id="profileImage" src="images/avatar2.png" alt="Profile Picture">
+                    <label for="uploadPic" class="upload-btn">Change Photo</label>
+                    <input type="file" id="uploadPic" accept="image/*" hidden>
+                </div>
+                
+                <h2 class="profile-title">My Profile</h2>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            
+            <div class="profile-right-column">
+                <div class="profile-info">
+    <p>Email:</p>
+    <span id="profileEmail"></span><br>
+
+    <p>Username:</p>
+    <span id="displayUsername">Not set</span><br>
+
+    <p>Bio:</p>
+    <span id="displayBio">Not set</span><br>
+
+    <p>Birthday:</p>
+    <span id="displayBirthday">Not set</span><br>
+
+    <button id="editProfileBtn" class="save-btn">
+        Edit Profile
+    </button>
+
+    <div id="editProfileForm" style="display:none; margin-top:15px;">
+        <input type="text" id="usernameInput" placeholder="Enter username"><br><br>
+        <textarea id="bioInput" placeholder="Enter bio"></textarea><br><br>
+        <input type="date" id="birthdayInput"><br><br>
+        <button onclick="saveProfile()" class="save-btn">Save</button>
+    </div>
+    </div> 
+            </div>
+
+            <div class="profile-bottom-content">
+                <section class="recent-photos-section">
+                    <div class="recent-header">
+                        <h2 class="recent-title">Recent Profile Photos</h2>
+                        <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+                    </div>
+
+                    <div id="recentPhotos" class="recent-photos-container">
+                        </div>
+                </section>  
+            </div>
+    </section>
+        
+                
+         <footer>
+       
+        <div class="container">
+          
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+               <ul>
+                    <li><a href="homies.html">Home</a></li>
+                    <li><a href="Recipes.html">Recipe</a></li>
+                    <li><a href="market.html">Marketmap</a></li>
+                    <li><a href="pnutrition.html">Nutrition</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="sec extralinks">
+                <h2>Creators</h2>
+                <ul>
+                     <li><a href="#">Martizano,Thrisha Mae</a></li>
+                    <li><a href="#">Lihotan,Hazel Jane</a></li>
+                    <li><a href="#">Bacalando,Shiela Mae</a></li>
+                </ul>
+            </div>
+
+            <div class="sec contact">
+                <h2>Contact Us</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-location-plus'></i></span>
+                        <span>Lingion & Alae, Manolo Fortich, Bukidnon <br> Philippines, 8703</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-phone'></i></span>
+                        <span>
+                            <a href="tel:09381402034">09381402034</a>
+                            <a href="tel:09709993420">09709993420</a>
+                            <a href="tel:09709993420">09709993420</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span><i class='bx bxs-envelope'></i></span>
+                        <span>
+                            <a href="mailto:martizanothrisha@gmail.com">martizanothrisha@gmail.com</a>
+                            <a href="mailto:hjlihotan@gmail.com">hjlihotan@gmail.com</a>
+                            <a href="mailto:chookstercokie@gmail.com">chookstercokie@gmail.com</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sec followus">
+                <h2>Follow Us</h2>
+                <ul class="sci-list"> 
+        <li><a href="https://www.facebook.com/shiela.mae.35380"><i class='bx bxl-facebook'></i> Facebook</a></li>
+        <li><a href="https://www.instagram.com/thrshm_?igsh=OTV2eHduNW5jd2c0"><i class='bx bxl-instagram-alt'></i> Instagram</a></li>
+        <li><a href="hjlihotan@gmail.com"><i class='bx bxs-envelope'></i> Email</a></li>
+        <li><a href="https://github.com/Hazel-Jane"><i class='bx bxl-github'></i> Github</a></li>
+    </ul>
+</div>
+        </div>
+    </footer>
+    <div class="copyrightText">
+        <p class="copyright"> &copy; 2025 SavoryKit - All Right Reserved</p>
+    </div>
+
+<script src="profile.js"></script>
+<script src="landing.js"></script>
+</body>
+</html>
+
+

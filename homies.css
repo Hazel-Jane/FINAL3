@@ -1,0 +1,847 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+:root {
+    
+    --primary-text-color: #1A1A1A;
+    
+    --secondary-text-color: #555555;
+   
+    --accent-red: #fb6007cc;
+   
+    --accent-green: #38761D;
+    
+    --bg-light-mint: #F5FFFB;
+   
+    --bg-header-color: #FFFFFF;
+ 
+    --bg-mid-color: #E3E8E8;
+   
+
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    /* Updated Variables for Requested Pastels */
+    --pastel-orange: #52d97a; 
+    --pastel-green: #f7f7f7; 
+    --dark-panel-bg: #000000; 
+    --dark-panel-text: #fffafa;
+    --dark-panel-subtext: #fff7f7;
+    --light-bg: #FFFFFF;
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: var(--font-main);
+    color: var(--primary-text-color);
+    background-color: var(--bg-light-mint);
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-content-area {
+    background-color: var(--bg-light-mint);
+}
+
+
+.hero-section {
+    overflow: hidden;
+    min-height: 95vh; 
+    display: flex;
+    align-items: center;
+    padding: 4rem 3rem; 
+    position: relative; 
+}
+
+.hero-inner-container {
+    margin: 0 auto;
+    max-width: 1400px; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 6rem; 
+    align-items: center;
+}
+.hero-text-content {
+    flex: 1;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10; 
+}
+
+.hero-text-content span {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10; 
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+.tagline {
+    color: var(--accent-red);
+    font-size: 2rem; 
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px; 
+}
+
+.main-heading {
+    font-family: var(--font-heading);
+    font-size: 4.5rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.main-heading .highlight-text {
+    color: var(--accent-green);
+    font-style: normal;
+}
+
+.intro-description {
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    margin-bottom: 2rem; 
+    font-size: 1.7rem; 
+}
+
+.highlight {
+    font-size: 1.25rem; 
+    font-style: italic;
+    font-weight: 700;
+    color: var(--primary-text-color);
+}
+
+.pull-quote {
+    border-left: 5px solid #8cdda4; 
+    padding: 1rem 0 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--bg-mid-color); 
+    border-radius: 4px;
+}
+
+.pull-quote p {
+    font-style: italic;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+
+.image-element {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    z-index: 10;
+    min-width: 320px; 
+}
+
+.image-display-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    min-width: 280px; 
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-color: var(--bg-header-color);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25); 
+    overflow: hidden;
+    z-index: 20;
+    transform: rotate(2deg); 
+    transition: transform 0.3s ease;
+}
+.image-display-wrapper:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+
+.image-element::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: -10%;
+    width: 150px;
+    height: 150px;
+    background: url('https://i.pinimg.com/736x/75/18/27/75182757038aa605c888d63487b5ef92.jpg') center / cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: rotate(-10deg);
+    z-index: 1;
+    filter: grayscale(10%); 
+}
+
+
+.image-element::after {
+    content: '';
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 200px;
+    height: 200px;
+    background: url('https://i.pinimg.com/736x/21/42/ba/2142ba4f18b573ef0dcc30faf63eb1d1.jpg') center / cover;
+    border-radius: 100%; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: rotate(5deg);
+    z-index: 15;
+}
+
+
+.food-plate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1) contrast(1);
+}
+
+/* --- NEW WEATHER CARD V3 STYLES (Matching Image) --- */
+
+.weather-content-wrapper {
+    /* Center the weather card below the hero section */
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background-color: var(--bg-light-mint);
+}
+
+.weather-info-container.weather-card-v3 {
+    /* Overall Container */
+    display: flex;
+    flex-direction: row;
+    
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 900px;
+    min-height: 500px;
+    font-family: var(--font-main);
+    color: var(--dark-panel-text);
+}
+
+
+/* --- LEFT PANEL: Current Weather (Orange Pastel Background) --- */
+.current-weather-v3 {
+    flex: 1.5; /* Larger side for main data */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; /* Space out the top and bottom content */
+    padding: 3rem;
+    color: var(--light-bg);
+    
+    /* ORANGE PASTEL PALETTE Background */
+    background: linear-gradient(140deg, #94d99e 0%, #FFDDAA 100%); 
+    position: relative;
+    z-index: 1;
+}
+
+/* Background Image Overlay (optional - remove if you want solid color) */
+.current-weather-v3::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* This uses the image from your example as an overlay */
+    background-image: url('https://i.imgur.com/k2e4xLg.jpeg'); 
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.35; /* Adjust opacity for the pastel look */
+    z-index: -1;
+}
+
+/* FIXES START HERE */
+
+/* Container for Day, Date, Location */
+.current-weather-v3 > div:first-child {
+    width: 100%; 
+    text-align: center; 
+}
+
+.weather-day-v3 {
+    font-size: 2.2rem; 
+    font-weight: 900; 
+    line-height: 1.2;
+    color: var(--light-bg); 
+}
+.weather-date-v3 {
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.9);
+}
+.weather-location-v3 {
+    font-size: 1.4rem; 
+    font-weight: 700; 
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.weather-location-v3 i {
+    font-size: 1.5rem;
+    margin-right: 0.4rem;
+}
+
+.weather-main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    margin: auto 0;
+}
+.weather-icon-v3 {
+    width: 120px; 
+    height: 120px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    margin-bottom: 0.5rem;
+}
+.weather-temp-v3 {
+    font-size: 5.5rem; 
+    font-weight: 900; 
+    line-height: 1;
+    color: var(--light-bg);
+}
+.weather-description-v3 {
+    font-size: 3rem; 
+    font-weight: 700; 
+    color: var(--light-bg);
+    margin-top: 0.5rem;
+}
+
+
+/* --- RIGHT PANEL: Details & Forecast (Dark Background) --- */
+.weather-details-forecast-v3 {
+    flex: 1.3; /* Smaller side for details/forecast */
+    padding: 3rem 2.5rem;
+    background: linear-gradient(230deg, #94d99e 0%, #FFDDAA 100%); 
+    color: var(--dark-panel-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- DETAILS GRID (Top Right) --- */
+.details-grid-v3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.detail-item-v3 {
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
+}
+.detail-label-v3 {
+    font-weight: 600; /* Make bold */
+    font-size: 2rem; /* Slightly bigger */
+    color: var(--dark-panel-subtext);
+    text-transform: capitalize;
+}
+.detail-value-v3 {
+    font-weight: 600; /* Make bolder */
+    font-size: 2rem; /* Slightly bigger */
+    color: var(--dark-panel-text);
+}
+
+/* --- FORECAST (Bottom Right) --- */
+.weather-forecast-v3 {
+    display: grid;                
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem;                    
+    padding: 2rem 0;
+    width: 100%;                  
+}
+
+/* --- INDIVIDUAL BOXES --- */
+.forecast-day-v3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;      
+    padding: 1rem;              
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.189);
+    width: 100%;                    
+    box-sizing: border-box;         
+}
+
+/* Keep the rest of your hover/text styles the same */
+.forecast-day-v3.active,
+.forecast-day-v3:hover {
+    background-color: rgba(233, 229, 223, 0.317);
+}
+
+
+.forecast-icon-v3 {
+    font-size: 4rem; /* BIGGER ICON SIZE */
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4rem;
+    
+}
+
+.forecast-day-name-v3 {
+    font-size: 1.3rem; /* Slightly bigger font */
+    font-weight: 700; /* Bold */
+    color:rgb(83, 83, 84);
+    text-transform: uppercase;
+}
+
+.forecast-temp-v3 {
+    font-size: 1.3rem; /* Slightly bigger font */
+    font-weight: 900; /* Bolder */
+    margin-top: 0.3rem;
+   color:rgb(83, 83, 84);
+}
+
+.weather-search-v3 {
+    width: 100%; 
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.search-input-container {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#city-search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    color: rgb(29, 29, 29)
+}
+
+.search-input-container {
+    background: linear-gradient(90deg, #ffffffe0 0%, #e2eaec 100%);
+}
+#city-search-input {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+#city-search-input::placeholder {
+    color: rgba(44, 44, 44, 0.9); /* Lighter placeholder text */
+    font-weight: 500;
+}
+
+#search-button {
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: var(--light-bg);
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
+}
+
+#search-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* FIXES END HERE */
+
+.image-element {
+    flex: 1;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    
+    z-index: 10;
+    padding: 2rem;
+}
+
+.image-display-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    padding-bottom: 100%;
+   
+    border-radius: 50%;
+ 
+    background-color: var(--bg-header-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 20;
+}
+
+.food-plate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1) contrast(1);
+}
+
+/* --- PLACES SECTION FIX (Paste at TOP of file) --- */
+.places-section {
+    display: block !important;
+    width: 100% !important;
+     background-color: #F5FFFB !important; 
+    
+    padding: 50px 0;
+    margin: 0;
+}
+
+.places-section h2 {
+    background-color: transparent !important; 
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.places-container {
+    background-color: transparent !important; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+
+
+.place-card {
+    display: block;
+    text-decoration: none;
+    width: 200px; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(178, 228, 166, 0.479); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+.place-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(178, 228, 166, 0.479); 
+}
+.place-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative; 
+}
+.place-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s;
+}
+
+.place-card:hover .place-image {
+    transform: scale(1.05);
+}
+.place-name {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    padding: 8px 5px;
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: #fff; 
+    margin: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 3rem 2rem;
+        min-height: auto; 
+    }
+
+    .hero-inner-container {
+        gap: 3rem; 
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .hero-text-content {
+        padding: 1.5rem 0;
+    }
+
+    .main-heading {
+        font-size: 3.5rem; /* Shrink heading size */
+    }
+
+    .intro-description {
+        font-size: 1.15rem;
+        max-width: none; /* Let it use the full width */
+    }
+    
+    /* Center text elements within the stacked layout */
+    .intro-description, 
+    .tagline, 
+    .pull-quote {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Adjust the main image and floating elements */
+    .image-element {
+        min-height: 400px;
+        padding: 0;
+    }
+
+    /* Adjust floating element positions to stay near the main image */
+    .image-element::before {
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+    }
+
+    .image-element::after {
+        bottom: 5%;
+        right: 5%;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Mobile Layout (max-width 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .main-heading {
+        font-size: 2.5rem; /* Further shrink heading */
+    }
+    
+    .intro-description {
+        font-size: 1rem;
+    }
+
+    .image-display-wrapper {
+        max-width: 300px; /* Shrink the main food plate */
+    }
+
+    .image-element {
+        min-height: 350px;
+    }
+    
+    /* Make floating elements smaller on phones */
+    .image-element::before {
+        width: 80px;
+        height: 80px;
+        left: -5%;
+    }
+    .image-element::after {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* --- WEATHER SECTION MEDIA QUERIES --- */
+/* ------------------------------------------------------------------ */
+
+/* Tablet & Small Desktop Layout (max-width 1024px) */
+@media (max-width: 1024px) {
+    .weather-info-container {
+        /* Switch to column layout */
+        flex-direction: column; 
+        min-height: auto;
+        width: 95%; /* Use more width on tablet */
+        max-width: 700px; /* Limit overall width */
+        margin: 0 auto;
+    }
+
+    /* The original weather card styles are commented out, but keeping the MQ overrides for context */
+    /* .current-weather, 
+    .weather-details-panel {
+        padding: 2rem; 
+    }
+    
+    .weather-temp {
+        font-size: 5rem; 
+    }
+
+    .detail-label {
+        font-size: 1.5rem; 
+    }
+
+    .detail-value {
+        font-size: 1.8rem;
+    } */
+}
+
+/* Mobile Layout (max-width 768px) */
+@media (max-width: 768px) {
+    .weather-info-container {
+        /* Ensure it's centered */
+        margin: 0 auto; 
+    }
+
+    /* .current-weather {
+        align-items: center; 
+        text-align: center;
+    }
+
+    .weather-location {
+        justify-content: center;
+        margin-bottom: 2rem; 
+    }
+    
+    .weather-temp {
+        font-size: 4rem; 
+    }
+    
+    .weather-temp-icon img {
+        width: 80px; 
+        height: 80px;
+        margin: 0 auto 10px; 
+    }
+
+    .detail-row {
+        padding: 1rem 0; 
+    }
+
+    .detail-label {
+        font-size: 1.2rem;
+    }
+
+    .detail-value {
+        font-size: 1.5rem;
+    } */
+}
+
+/* --- Responsive Adjustments for New Card --- */
+@media (max-width: 800px) {
+    .weather-info-container.weather-card-v3 {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .current-weather-v3 {
+        padding: 2.5rem;
+        align-items: center;
+        text-align: center;
+    }
+    .current-weather-v3::before {
+        background-position: center; 
+    }
+    .weather-location-v3 {
+        justify-content: center;
+    }
+    .weather-main-info {
+        align-items: center;
+    }
+
+    .weather-details-forecast-v3 {
+        padding: 2.5rem;
+    }
+
+    .details-grid-v3 {
+        grid-template-columns: 1fr; /* Stack details vertically on smaller screens */
+    }
+    .detail-item-v3 {
+        text-align: left;
+    }
+}
+
+
+/* --- EXISTING CSS FOR .places-section (Base styles, assumed for Desktop/Large screens) --- */
+
+/* Styling for the main section and heading */
+.places-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.places-section h2 {
+    font-size: 4rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Base Container (Large Screen Default) */
+.places-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px; 
+    justify-content: center; 
+}
+
+/* Base Card Size (Large Screen Default) */
+.place-card {
+    display: block;
+    text-decoration: none;
+    width: 200px; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(178, 228, 166, 0.479); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.place-image-wrapper {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+    position: relative; 
+}
+
+/* Place Name (Text Overlay) */
+.place-name {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    padding: 8px 5px;
+    font-size: 1.4rem; /* Base font size */
+    font-weight: bold;
+    color: #fff; 
+    margin: 0;
+    text-align: center
+}
